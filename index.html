@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 6th month anniversary ammu</title>
+
+  <!-- Google Fonts: Cormorant Garamond (romantic display) + Lato (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       CSS VARIABLES â€” Romantic Palette
+    ============================================================ */
+    :root {
+      --rose:        #f4a7b9;
+      --deep-rose:   #e07b9a;
+      --blush:       #fce4ec;
+      --lavender:    #d8b4fe;
+      --soft-purple: #a78bfa;
+      --sky:         #bae6fd;
+      --cream:       #fff9f0;
+      --gold:        #d4a574;
+      --dark:        #2d1b35;
+      --text:        #4a3050;
+      --text-light:  #8b7394;
+      --white:       #ffffff;
+
+      --font-display: 'Cormorant Garamond', serif;
+      --font-script:  'Dancing Script', cursive;
+      --font-body:    'Lato', sans-serif;
+
+      --transition:  0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--cream);
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* ============================================================
+       FLOATING HEARTS CANVAS (background particles)
+    ============================================================ */
+    #heart-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+    }
+
+    /* ============================================================
+       SECTION SHARED STYLES
+    ============================================================ */
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-family: var(--font-script);
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--deep-rose);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    /* ============================================================
+       1. LANDING / HERO SECTION
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Layered photo background */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(45,27,53,0.48) 0%, rgba(74,25,66,0.3) 42%, rgba(45,27,53,0.62) 100%),
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.14), transparent 28%),
+        url('front photo.jpeg');
+      background-size: cover;
+      background-position: center 24%;
+      animation: bgShift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgShift {
+      0%   { filter: hue-rotate(0deg) brightness(1); }
+      100% { filter: hue-rotate(15deg) brightness(1.05); }
+    }
+
+    /* Bokeh circles */
+    .bokeh {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.4;
+      animation: drift 8s ease-in-out infinite alternate;
+    }
+    .bokeh-1 { width:400px;height:400px;background:var(--rose);    top:-100px;left:-100px; animation-duration:9s; }
+    .bokeh-2 { width:300px;height:300px;background:var(--lavender); bottom:-80px;right:-80px; animation-duration:11s; animation-delay:-3s; }
+    .bokeh-3 { width:250px;height:250px;background:var(--sky);     top:40%;left:60%; animation-duration:7s; animation-delay:-5s; }
+
+    @keyframes drift {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(30px,20px) scale(1.1); }
+    }
+
+    .hero-content {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+      animation: heroReveal 1.4s ease both;
+    }
+
+    @keyframes heroReveal {
+      from { opacity:0; transform:translateY(40px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-script);
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.12em;
+      margin-bottom: 1rem;
+      animation: heroReveal 1.4s 0.2s ease both;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: #fff;
+      text-shadow: 0 4px 30px rgba(180,80,120,0.4);
+      margin-bottom: 0.5rem;
+      animation: heroReveal 1.4s 0.4s ease both;
+    }
+
+    .hero-title span {
+      display: block;
+      font-style: italic;
+      font-size: 0.55em;
+      font-weight: 300;
+      color: #fff4f8;
+      text-shadow: 0 4px 24px rgba(116, 18, 53, 0.55);
+      letter-spacing: 0.08em;
+    }
+
+    .hero-heart {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      display: block;
+      margin: 1rem 0;
+      animation: heartbeat 1.5s ease-in-out infinite, heroReveal 1.4s 0.6s ease both;
+    }
+
+    @keyframes heartbeat {
+      0%,100% { transform: scale(1); }
+      14%      { transform: scale(1.18); }
+      28%      { transform: scale(1); }
+      42%      { transform: scale(1.12); }
+      70%      { transform: scale(1); }
+    }
+
+    .hero-date {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 2.5rem;
+      animation: heroReveal 1.4s 0.8s ease both;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 2.8rem;
+      background: linear-gradient(135deg, var(--deep-rose), var(--soft-purple));
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      border-radius: 60px;
+      cursor: pointer;
+      box-shadow: 0 8px 40px rgba(224,123,154,0.45);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: heroReveal 1.4s 1s ease both;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 14px 50px rgba(224,123,154,0.6);
+    }
+
+    /* Scroll indicator */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: fadeIn 2s 2s ease both;
+    }
+
+    .scroll-hint::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+      animation: scrollLine 1.8s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0%   { transform: scaleY(0); transform-origin: top; }
+      50%  { transform: scaleY(1); transform-origin: top; }
+      51%  { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity:0; }
+      to   { opacity:1; }
+    }
+
+    /* ============================================================
+       2. MUSIC PLAYER (sticky)
+    ============================================================ */
+    #music-player {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(244,167,185,0.4);
+      border-radius: 60px;
+      padding: 0.6rem 1.2rem 0.6rem 0.6rem;
+      box-shadow: 0 8px 32px rgba(180,80,120,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    #music-player:hover { transform: scale(1.04); }
+
+    #play-btn {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, var(--deep-rose), var(--soft-purple));
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+      box-shadow: 0 4px 16px rgba(224,123,154,0.4);
+    }
+
+    #play-btn:hover { transform: scale(1.1); }
+
+    .music-info {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .music-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--dark);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 140px;
+    }
+
+    .music-label {
+      font-size: 0.65rem;
+      color: var(--text-light);
+      letter-spacing: 0.1em;
+    }
+
+    /* Equalizer bars (playing indicator) */
+    .eq-bars {
+      display: none;
+    }
+
+    .eq-bar {
+      width: 3px;
+      background: var(--deep-rose);
+      border-radius: 2px;
+      animation: eqBounce 0.8s ease infinite alternate;
+    }
+
+    .eq-bar:nth-child(1) { height: 6px;  animation-delay: 0s;     animation-duration: 0.6s; }
+    .eq-bar:nth-child(2) { height: 12px; animation-delay: 0.1s;   animation-duration: 0.9s; }
+    .eq-bar:nth-child(3) { height: 8px;  animation-delay: 0.2s;   animation-duration: 0.7s; }
+    .eq-bar:nth-child(4) { height: 14px; animation-delay: 0.15s;  animation-duration: 0.8s; }
+
+    @keyframes eqBounce {
+      from { transform: scaleY(0.3); }
+      to   { transform: scaleY(1); }
+    }
+
+    .eq-bars.paused .eq-bar { animation-play-state: paused; }
+
+    /* ============================================================
+       3. RELATIONSHIP TIMER
+    ============================================================ */
+    #timer {
+      padding: 6rem 1rem;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(252,228,236,0.26) 0%, rgba(255,249,240,0.95) 27%, rgba(255,249,240,0.97) 73%, rgba(227,242,253,0.28) 100%),
+        url('hand.jpg'),
+        url('maruthani leaf.jpg'),
+        linear-gradient(135deg, #fce4ec 0%, #ede7f6 50%, #e3f2fd 100%);
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      background-size: cover, auto 92%, auto 92%, cover;
+      background-position: center, left -1% center, right -1% center, center;
+      text-align: center;
+    }
+
+    .timer-layout {
+      max-width: 760px;
+      margin: 0 auto;
+      display: block;
+      align-items: center;
+    }
+
+    .timer-center {
+      min-width: 0;
+      padding: clamp(1.5rem, 3vw, 2.2rem);
+      border-radius: 30px;
+      background: rgba(255,255,255,0.68);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 46px rgba(90,66,116,0.12);
+    }
+
+    .timer-grid {
+      display: flex;
+      justify-content: center;
+      gap: clamp(1rem, 4vw, 3rem);
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+
+    .timer-card {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(244,167,185,0.3);
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      min-width: 120px;
+      box-shadow: 0 8px 32px rgba(180,80,120,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .timer-card:hover { transform: translateY(-6px); }
+
+    .timer-number {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 600;
+      color: var(--deep-rose);
+      line-height: 1;
+      display: block;
+    }
+
+    .timer-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 0.4rem;
+    }
+
+    /* ============================================================
+       4. MEMORY TIMELINE
+    ============================================================ */
+    #timeline {
+      padding: 7rem 1rem;
+      background: var(--cream);
+    }
+
+    .timeline-container {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* Vertical line */
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--rose) 10%, var(--lavender) 50%, var(--rose) 90%, transparent);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5rem;
+      opacity: 0;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .timeline-item.left  { flex-direction: row; }
+    .timeline-item.right { flex-direction: row-reverse; }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: none !important;
+    }
+
+    .timeline-item.left  { transform: translateX(-60px); }
+    .timeline-item.right { transform: translateX(60px); }
+
+    .timeline-photo {
+      flex: 1;
+      padding: 0 2.5rem;
+    }
+
+    .timeline-photo img {
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: auto;
+      object-fit: contain;
+      object-position: center;
+      background: rgba(255,255,255,0.9);
+      border-radius: 20px;
+      box-shadow: 0 16px 48px rgba(180,80,120,0.2);
+      display: block;
+      margin: auto;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .timeline-photo.landscape img {
+      max-width: 420px;
+    }
+
+    .timeline-photo.portrait img {
+      max-width: 320px;
+    }
+
+    .timeline-photo img:hover {
+      transform: scale(1.04) rotate(-1deg);
+      box-shadow: 0 24px 60px rgba(180,80,120,0.35);
+    }
+
+    .timeline-dot {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--deep-rose), var(--soft-purple));
+      box-shadow: 0 0 0 5px var(--cream), 0 0 0 6px var(--rose);
+      position: relative;
+      z-index: 2;
+    }
+
+    .timeline-text {
+      flex: 1;
+      padding: 0 2.5rem;
+    }
+
+    .timeline-tag {
+      display: inline-block;
+      font-family: var(--font-script);
+      font-size: 1rem;
+      color: var(--deep-rose);
+      background: rgba(244,167,185,0.15);
+      border: 1px solid rgba(244,167,185,0.35);
+      border-radius: 30px;
+      padding: 0.2rem 0.9rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .timeline-text h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-text p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--text-light);
+    }
+
+    /* ============================================================
+       5. TRAIN JOURNEY SECTION
+    ============================================================ */
+    #train-journey {
+      --journey-progress: 0;
+      padding: 7rem 1rem;
+      background:
+        radial-gradient(circle at top left, rgba(186,230,253,0.8), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(244,167,185,0.45), transparent 28%),
+        linear-gradient(180deg, #fff7fb 0%, #eef6ff 100%);
+      overflow: hidden;
+    }
+
+    .journey-layout {
+      max-width: min(100%, 1400px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2rem, 4vw, 3rem);
+      align-items: start;
+    }
+
+    .train-card {
+      position: relative;
+      border-radius: 34px;
+      padding: clamp(1.5rem, 3vw, 2.2rem);
+      min-height: auto;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(224,123,154,0.18);
+      box-shadow: 0 28px 70px rgba(90, 66, 116, 0.12);
+      backdrop-filter: blur(14px);
+      overflow: hidden;
+    }
+
+    .train-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 15%, rgba(255,255,255,0.85), transparent 18%),
+        radial-gradient(circle at 82% 16%, rgba(216,180,254,0.25), transparent 20%);
+      pointer-events: none;
+    }
+
+    .journey-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(244,167,185,0.14);
+      color: var(--deep-rose);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .route-line,
+    .route-fill,
+    .route-stop,
+    .route-stop::before {
+      position: absolute;
+    }
+    .route-map {
+      position: relative;
+      margin-top: 1rem;
+      padding: 1.8rem 1.4rem 3.6rem;
+      min-height: 34vh;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(252,249,255,0.95), rgba(244,248,255,0.96));
+      border: 1px solid rgba(167,139,250,0.12);
+    }
+
+    .route-title {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      font-weight: 700;
+    }
+
+    .route-title strong {
+      color: var(--deep-rose);
+    }
+
+    .route-line,
+    .route-fill {
+      left: 22px;
+      right: 22px;
+      top: 62px;
+      height: 6px;
+      border-radius: 999px;
+    }
+
+    .route-line {
+      background: rgba(167,139,250,0.18);
+    }
+
+    .route-fill {
+      right: auto;
+      width: calc(36px + (var(--journey-progress) * (100% - 72px)));
+      background: linear-gradient(90deg, #e07b9a 0%, #9c7bff 100%);
+      box-shadow: 0 0 20px rgba(156,123,255,0.22);
+      transition: width 0.35s ease;
+    }
+
+    .route-stop {
+      top: 48px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid rgba(167,139,250,0.45);
+      transform: translateX(-50%);
+    }
+
+    .route-stop::before {
+      content: attr(data-stop);
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--text-light);
+      white-space: normal;
+      text-align: center;
+      width: 96px;
+      line-height: 1.35;
+    }
+
+    .route-stop.active {
+      border-color: var(--deep-rose);
+      box-shadow: 0 0 0 6px rgba(224,123,154,0.12);
+    }
+
+    .route-stop.start { left: 6%; }
+    .route-stop.stop-two { left: 18%; }
+    .route-stop.stop-three { left: 30%; }
+    .route-stop.stop-four { left: 42%; }
+    .route-stop.stop-five { left: 54%; }
+    .route-stop.stop-six { left: 66%; }
+    .route-stop.stop-seven { left: 78%; }
+    .route-stop.end { left: 90%; }
+
+    .track-memory {
+      margin-top: 1.8rem;
+      display: grid;
+      grid-template-columns: minmax(260px, 420px) minmax(0, 1fr);
+      gap: clamp(1.2rem, 3vw, 2.4rem);
+      align-items: center;
+      padding: 1.3rem;
+      border-radius: 26px;
+      background: rgba(255,255,255,0.74);
+      border: 1px solid rgba(224,123,154,0.16);
+      box-shadow: 0 18px 48px rgba(90,66,116,0.08);
+    }
+
+    .track-memory-photo img {
+      width: 100%;
+      display: block;
+      border-radius: 22px;
+      box-shadow: 0 16px 38px rgba(90,66,116,0.14);
+    }
+
+    .track-memory-text h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .track-memory-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-light);
+    }
+
+    /* ============================================================
+       6. MEMORY GALLERIES
+    ============================================================ */
+    .memory-gallery-section {
+      padding: 6rem 1rem;
+      background: linear-gradient(160deg, #f8e8f5 0%, #e8f4fd 100%);
+    }
+
+    .memory-gallery-section.alt {
+      background: linear-gradient(160deg, #fff8f3 0%, #eef5ff 100%);
+    }
+
+    .memory-gallery-section.funny-moments {
+      background: linear-gradient(160deg, #fff1e8 0%, #ffe3f1 48%, #eef7ff 100%);
+    }
+
+    .memory-gallery-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .memory-gallery-frame {
+      min-height: 460px;
+      border-radius: 30px;
+      border: 1px solid rgba(224,123,154,0.16);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.95), rgba(247,240,250,0.96));
+      box-shadow: 0 24px 64px rgba(180,80,120,0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(1.4rem, 3vw, 2rem);
+      text-align: center;
+    }
+
+    .memory-gallery-frame.slider {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      min-height: min(88vh, 900px);
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    .memory-gallery-note {
+      max-width: 420px;
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .memory-gallery-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .memory-gallery-grid.ordered {
+      grid-template-columns: 1fr;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .memory-gallery-grid img {
+      width: 100%;
+      height: 100%;
+      max-height: 420px;
+      object-fit: contain;
+      display: block;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 14px 34px rgba(90,66,116,0.12);
+      padding: 0.35rem;
+    }
+
+    .memory-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.9s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .memory-slide.active {
+      opacity: 1;
+    }
+
+    .memory-slide img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    .memory-slide img.portrait {
+      max-width: min(100%, 520px);
+      max-height: min(78vh, 820px);
+    }
+
+    .memory-slide img.landscape {
+      width: min(100%, 1120px);
+      max-height: min(72vh, 680px);
+    }
+
+    .memory-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.92);
+      color: var(--deep-rose);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      cursor: pointer;
+      z-index: 3;
+      font-size: 1.2rem;
+    }
+
+    .memory-arrow.prev {
+      left: 14px;
+    }
+
+    .memory-arrow.next {
+      right: 14px;
+    }
+
+    .memory-dots {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      z-index: 3;
+    }
+
+    .memory-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: rgba(224,123,154,0.3);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .memory-dot.active {
+      background: var(--deep-rose);
+      transform: scale(1.35);
+    }
+
+    /* ============================================================
+       7. LOVE LETTER SECTION
+    ============================================================ */
+    #love-letter {
+      padding: 7rem 1rem;
+      background: radial-gradient(circle at top, rgba(255, 215, 225, 0.95), rgba(255, 240, 244, 0.92) 38%, rgba(255, 228, 236, 0.96) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #love-letter::before,
+    #love-letter::after {
+      content: '❤';
+      position: absolute;
+      font-size: clamp(7rem, 18vw, 12rem);
+      color: rgba(214, 65, 108, 0.08);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    #love-letter::before {
+      top: 2rem;
+      left: 2rem;
+      transform: rotate(-12deg);
+    }
+
+    #love-letter::after {
+      right: 2rem;
+      bottom: 2rem;
+      transform: rotate(14deg);
+    }
+
+    .letter-card {
+      max-width: 680px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 244, 247, 0.98));
+      border: 1px solid rgba(214, 65, 108, 0.22);
+      border-radius: 28px;
+      padding: clamp(2rem, 5vw, 4rem);
+      box-shadow: 0 24px 70px rgba(214, 65, 108, 0.16);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative corner ornament */
+    .letter-card::before,
+    .letter-card::after {
+      content: 'â§';
+      position: absolute;
+      font-size: 4rem;
+      color: rgba(244,167,185,0.2);
+      line-height: 1;
+    }
+    .letter-card::before { top: -0.5rem; left: 0.5rem; }
+    .letter-card::after  { bottom: -0.5rem; right: 0.5rem; transform: rotate(180deg); }
+
+    .letter-salutation {
+      font-family: var(--font-script);
+      font-size: 1.6rem;
+      color: #c2265c;
+      margin-bottom: 1.2rem;
+    }
+
+    #typed-letter {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      font-weight: 500;
+      line-height: 1.7;
+      color: #8f1d4f;
+      min-height: 3em;
+      text-align: center;
+    }
+
+    .cursor-blink {
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      background: var(--deep-rose);
+      vertical-align: middle;
+      margin-left: 2px;
+      animation: blink 0.9s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%,100% { opacity:1; }
+      50%      { opacity:0; }
+    }
+
+    .letter-sign {
+      font-family: var(--font-script);
+      font-size: 1.3rem;
+      color: #c2265c;
+      text-align: right;
+      margin-top: 1.5rem;
+    }
+
+    .love-names {
+      position: relative;
+      max-width: 980px;
+      min-height: 420px;
+      margin: 0 auto 2.5rem;
+      pointer-events: none;
+    }
+
+    .love-name {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(214, 65, 108, 0.18);
+      box-shadow: 0 10px 24px rgba(214, 65, 108, 0.12);
+      color: #c2265c;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      backdrop-filter: blur(8px);
+    }
+
+    .love-name::before {
+      content: '❤';
+      color: #e23e72;
+      font-size: 0.85rem;
+    }
+
+    .love-name.one { top: 1rem; left: 4%; transform: rotate(-10deg); }
+    .love-name.two { top: 1.5rem; right: 5%; transform: rotate(8deg); }
+    .love-name.three { top: 5.4rem; left: 16%; transform: rotate(-6deg); }
+    .love-name.four { top: 5.8rem; right: 15%; transform: rotate(10deg); }
+    .love-name.five { top: 10.6rem; left: 2%; transform: rotate(-8deg); }
+    .love-name.six { top: 10.8rem; right: 2%; transform: rotate(6deg); }
+    .love-name.seven { top: 15.5rem; left: 8%; transform: rotate(7deg); }
+    .love-name.eight { top: 15.3rem; right: 9%; transform: rotate(-7deg); }
+    .love-name.nine { top: 20.2rem; left: 1%; transform: rotate(-4deg); }
+    .love-name.ten { top: 20rem; right: 2%; transform: rotate(5deg); }
+    .love-name.eleven { top: 25rem; left: 10%; transform: rotate(-9deg); }
+    .love-name.twelve { top: 24.6rem; right: 10%; transform: rotate(6deg); }
+    .love-name.thirteen { bottom: 2.4rem; left: 4%; transform: rotate(-5deg); }
+    .love-name.fourteen { bottom: 2rem; right: 4%; transform: rotate(7deg); }
+    .love-name.fifteen { bottom: 0.8rem; left: 23%; transform: rotate(-4deg); }
+    .love-name.sixteen { bottom: 0.6rem; right: 22%; transform: rotate(4deg); }
+    .love-name.seventeen { bottom: 8rem; left: 19%; transform: rotate(-8deg); }
+
+    .letter-heart-row {
+      text-align: center;
+      font-size: 1.3rem;
+      letter-spacing: 0.25rem;
+      color: #e23e72;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    #love-letter .section-subtitle {
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      color: #c2265c;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ============================================================
+       8. FINAL CLOSING SECTION
+    ============================================================ */
+    #final {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #2d1b35 0%, #4a1942 50%, #2d1b35 100%);
+      padding: 4rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(244,167,185,0.15) 0%, transparent 70%);
+      animation: glowPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%,100% { opacity:0.5; transform:scale(1); }
+      50%      { opacity:1;   transform:scale(1.1); }
+    }
+
+    .final-content {
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .final-content.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .final-icon {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      display: block;
+      margin-bottom: 1.5rem;
+      animation: heartbeat 2s ease-in-out infinite;
+    }
+
+    .final-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      font-weight: 300;
+      font-style: italic;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .final-sub {
+      font-family: var(--font-script);
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      color: var(--rose);
+      margin-bottom: 2rem;
+    }
+
+    .final-message {
+      max-width: 920px;
+      margin: 0 auto;
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 6vw, 5.6rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: #fff4f8;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.22);
+      letter-spacing: 0.01em;
+      text-wrap: balance;
+    }
+
+    .final-divider {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--rose), transparent);
+      margin: 2rem auto;
+    }
+
+    /* ============================================================
+       SCROLL REVEAL (shared utility)
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 650px) {
+      #timer {
+        background-size: cover, auto 44%, auto 44%, cover;
+        background-position: center, left -18% top 14%, right -18% bottom 14%, center;
+      }
+
+      .memory-gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .track-memory {
+        grid-template-columns: 1fr;
+      }
+
+      .journey-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .train-card {
+        min-height: auto;
+      }
+
+      .train-shell {
+        width: 150px;
+        height: 64px;
+      }
+
+      .train-door {
+        left: calc(22% + (var(--journey-progress) * 56%));
+      }
+
+      .train-front {
+        left: calc(54% + (var(--journey-progress) * 56%));
+      }
+
+      .headlight.h1,
+      .headlight.h2 {
+        left: calc(63% + (var(--journey-progress) * 56%));
+      }
+
+      .train-wheel {
+        left: calc(12% + (var(--journey-progress) * 56%));
+      }
+
+      .train-wheel.w2 {
+        left: calc(28% + (var(--journey-progress) * 56%));
+      }
+
+      .train-wheel.w3 {
+        left: calc(45% + (var(--journey-progress) * 56%));
+      }
+
+      .route-stop::before {
+        font-size: 0.64rem;
+        white-space: normal;
+        width: 58px;
+      }
+
+      .timeline-container::before { left: 24px; }
+
+      .timeline-item,
+      .timeline-item.left,
+      .timeline-item.right {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 52px;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: 16px;
+      }
+
+      .timeline-photo { padding: 0; width: 100%; margin-top: 1rem; }
+      .timeline-text  { padding: 0; }
+
+      .timeline-item { position: relative; }
+
+      .slide-arrow.prev { left: 4px; }
+      .slide-arrow.next { right: 4px; }
+
+      .slideshow-frame {
+        min-height: 420px;
+      }
+
+      #music-player { bottom: 1rem; right: 1rem; }
+
+      .timer-grid { gap: 0.8rem; }
+      .timer-card { padding: 1.2rem 1rem; min-width: 90px; }
+
+      .love-names {
+        min-height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+      }
+
+      .love-name {
+        position: static;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       FLOATING HEARTS CANVAS
+  ============================================================ -->
+  <canvas id="heart-canvas"></canvas>
+
+  <!-- ============================================================
+       STICKY MUSIC PLAYER
+  ============================================================ -->
+  <div id="music-player" role="complementary" aria-label="Music Player">
+    <button id="play-btn" aria-label="Play/Pause music">â–¶</button>
+    <div class="music-info">
+      <span class="music-title">Mundhinam Parthene Instrumental</span>
+      <span class="music-label">Our Song</span>
+    </div>
+    <div class="eq-bars paused" id="eq">
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+    </div>
+  </div>
+
+  <audio id="bg-music" loop preload="auto" autoplay>
+    <source src="Mundhinam Parthene Instrumental.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- ============================================================
+       1. HERO / LANDING SECTION
+  ============================================================ -->
+  <section id="hero">
+    <div class="hero-bg">
+      <!-- Replace the gradient with your background photo:
+           style="background-image: url('YOUR_PHOTO_URL'); background-size:cover; background-position:center;"
+      -->
+      <div class="bokeh bokeh-1"></div>
+      <div class="bokeh bokeh-2"></div>
+      <div class="bokeh bokeh-3"></div>
+    </div>
+
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Happy 6th month anniversary
+        <span>ammu❤️😘</span>
+      </h1>
+      <p class="hero-date">FROM OCTOBER 9, 2025</p>
+      <a href="#timer" class="btn-primary">Start Our Journey</a>
+    </div>
+
+    <div class="scroll-hint">Scroll</div>
+  </section>
+
+  <!-- ============================================================
+       2. RELATIONSHIP TIMER
+  ============================================================ -->
+  <section id="timer">
+    <div class="timer-layout">
+      <div class="timer-center">
+        <h2 class="section-title reveal">We've been together for...</h2>
+        <p class="section-subtitle reveal">Every second with you is a gift 🌸</p>
+
+        <div class="timer-grid">
+          <div class="timer-card reveal">
+            <span class="timer-number" id="t-days">000</span>
+            <span class="timer-label">Days</span>
+          </div>
+          <div class="timer-card reveal">
+            <span class="timer-number" id="t-hours">00</span>
+            <span class="timer-label">Hours</span>
+          </div>
+          <div class="timer-card reveal">
+            <span class="timer-number" id="t-mins">00</span>
+            <span class="timer-label">Minutes</span>
+          </div>
+          <div class="timer-card reveal">
+            <span class="timer-number" id="t-secs">00</span>
+            <span class="timer-label">Seconds</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. MEMORY TIMELINE
+  ============================================================ -->
+  <section id="timeline">
+    <h2 class="section-title reveal">Our Journey ❤️</h2>
+    <p class="section-subtitle reveal">Moments I'll treasure forever</p>
+
+    <div class="timeline-container">
+
+      <!-- Memory 1 -->
+      <div class="timeline-item left">
+        <div class="timeline-photo portrait">
+          <img src="Hi.jpeg" alt="Hi" loading="lazy" />
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-text">
+          <span class="timeline-tag">From</span>
+          <h3>Hi</h3>
+          <p>Hi keshika, I'm Dhivakar PCK</p>
+        </div>
+      </div>
+
+      <!-- Memory 2 -->
+      <div class="timeline-item right">
+        <div class="timeline-photo landscape">
+          <img src="beach.jpg" alt="Beach Memory" loading="lazy" />
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-text">
+          <span class="timeline-tag">Fear Became Love</span>
+          <h3>My lips on your cheek🙈❤️</h3>
+          <p>The moment my fears faded away…<br />Every little thing I did,<br />I did it with hesitation… thinking about you,<br />wondering what you would feel, what you would think…<br />And somehow… I still remember all of it ❤️</p>
+        </div>
+      </div>
+
+      <!-- Memory 3 -->
+      <div class="timeline-item left">
+        <div class="timeline-photo portrait">
+          <img src="seeing you.jpg" alt="Seeing You Memory" loading="lazy" />
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-text">
+          <span class="timeline-tag">Just to See You</span>
+          <h3>The Reason I Came to College ❤️</h3>
+          <p>In class, I would wait for the free period…<br />just to make my heart feel full by seeing you.<br />My eyes would search for you… only you.<br />And slowly, I realized…<br />I wasn’t coming to college for anything else—<br />I was coming just for you ❤️</p>
+        </div>
+      </div>
+
+      <!-- Memory 4 -->
+      <div class="timeline-item right">
+        <div class="timeline-photo landscape">
+          <img src="saree.jpg" alt="Saree Memory" loading="lazy" />
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-text">
+          <span class="timeline-tag">First Saree Look</span>
+          <h3>The Day You Took My Breath Away ❤️</h3>
+          <p>The first time I saw you in a saree…<br />I was completely lost in that moment.<br />The way you walked towards me…<br />I still remember it so clearly❤️<br />I also remember my hands on you waist😁🙈</p>
+        </div>
+      </div>
+
+      <!-- Memory 5 -->
+      <div class="timeline-item left">
+        <div class="timeline-photo landscape">
+          <img src="lib.jpg" alt="Our Story Memory" loading="lazy" />
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-text">
+          <span class="timeline-tag">Places Remember Us</span>
+          <h3>Our Story Stayed There Too ❤️</h3>
+          <p>And somehow…<br />those walls and tables know our stories❤️</p>
+        </div>
+      </div>
+
+      <!-- Memory 6 -->
+      <div class="timeline-item right">
+        <div class="timeline-photo portrait">
+          <img src="coffee.jpg" alt="Coffee Memory" loading="lazy" />
+        </div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-text">
+          <span class="timeline-tag">Forever Mornings</span>
+          <h3>A Lifetime of Your Coffee ❤️</h3>
+          <p>I want this cup of coffee every morning…<br />throughout my life, from your hands ❤️</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. TRAIN JOURNEY SECTION
+  ============================================================ -->
+  <section id="train-journey">
+    <h2 class="section-title reveal">Our Story on Those Tracks❤️</h2>
+
+    <div class="journey-layout">
+      <div class="reveal">
+        <div class="train-card">
+          <div class="journey-badge">From Chromepet to Guindy</div>
+
+          <div class="route-map" aria-hidden="true">
+            <div class="route-title">
+              <span>Route Map</span>
+              <strong>Chromepet to Guindy</strong>
+            </div>
+            <div class="route-line"></div>
+            <div class="route-fill"></div>
+            <div class="route-stop start active" data-index="0" data-stop="Chromepet"></div>
+            <div class="route-stop stop-two active" data-index="1" data-stop="Pallavaram"></div>
+            <div class="route-stop stop-three" data-index="2" data-stop="Trisulam"></div>
+            <div class="route-stop stop-four" data-index="3" data-stop="Meenambakkam"></div>
+            <div class="route-stop stop-five" data-index="4" data-stop="Tirusulam Airport"></div>
+            <div class="route-stop stop-six" data-index="5" data-stop="St. Thomas Mount"></div>
+            <div class="route-stop stop-seven" data-index="6" data-stop="Palavanthangal"></div>
+            <div class="route-stop end" data-index="7" data-stop="Guindy"></div>
+          </div>
+
+          <div class="track-memory reveal">
+            <div class="track-memory-photo">
+              <img src="ticket.jpg" alt="Train Ticket Memory" loading="lazy" />
+            </div>
+            <div class="track-memory-text">
+              <h3>Moments We’ll Hold Forever❤️</h3>
+              <p>All the waiting… to reach that the destination...<br />Filled with love, laughter, and moments that felt endless…<br />That forehead moment…😁🙈🙈🙈🙈😘<br />And our hands held together…<br />like they were meant to stay that way...<br />That one dark late evening train journey…<br />gave us memories I’ll carry in my heart always❤️</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. SLIDESHOW SECTION
+  ============================================================ -->
+  <section class="memory-gallery-section">
+    <div class="memory-gallery-wrap">
+      <h2 class="section-title reveal">Right here, with you, is all I need❤️</h2>
+      <div class="memory-gallery-frame slider reveal" id="memory-slider-1">
+        <div class="memory-slide active">
+          <img src="photo1.jpg" alt="Right here memory 1" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo2.jpg" alt="Right here memory 2" loading="lazy" class="landscape" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo3.jpg" alt="Right here memory 3" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo4.jpg" alt="Right here memory 4" loading="lazy" class="landscape" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo5.jpg" alt="Right here memory 5" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo6.jpg" alt="Right here memory 6" loading="lazy" class="landscape" />
+        </div>
+        <button class="memory-arrow prev" aria-label="Previous memory">&#8249;</button>
+        <button class="memory-arrow next" aria-label="Next memory">&#8250;</button>
+        <div class="memory-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="memory-gallery-section funny-moments">
+    <div class="memory-gallery-wrap">
+      <h2 class="section-title reveal">Your funny moments… I loved them the most❤️</h2>
+      <div class="memory-gallery-frame slider reveal" id="memory-slider-2">
+        <div class="memory-slide active">
+          <img src="photo7.jpg" alt="Funny memory 1" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo8.jpg" alt="Funny memory 2" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo10.jpg" alt="Funny memory 3" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo11.jpg" alt="Funny memory 4" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo9.jpg" alt="Funny memory 5" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo14.jpg" alt="Funny memory 6" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo12.jpg" alt="Funny memory 7" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo13.jpg" alt="Funny memory 8" loading="lazy" class="portrait" />
+        </div>
+        <button class="memory-arrow prev" aria-label="Previous memory">&#8249;</button>
+        <button class="memory-arrow next" aria-label="Next memory">&#8250;</button>
+        <div class="memory-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="memory-gallery-section">
+    <div class="memory-gallery-wrap">
+      <h2 class="section-title reveal">Our iconic moments…❤️</h2>
+      <div class="memory-gallery-frame slider reveal" id="memory-slider-3">
+        <div class="memory-slide active">
+          <img src="photo15.jpg" alt="Iconic memory 1" loading="lazy" class="landscape" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo16.jpg" alt="Iconic memory 2" loading="lazy" class="portrait" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo17.jpg" alt="Iconic memory 3" loading="lazy" class="landscape" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo18.jpg" alt="Iconic memory 4" loading="lazy" class="landscape" />
+        </div>
+        <div class="memory-slide">
+          <img src="photo19.jpg" alt="Iconic memory 5" loading="lazy" class="landscape" />
+        </div>
+        <button class="memory-arrow prev" aria-label="Previous memory">&#8249;</button>
+        <button class="memory-arrow next" aria-label="Next memory">&#8250;</button>
+        <div class="memory-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. LOVE LETTER SECTION
+  ============================================================ -->
+  <section id="love-letter">
+    <p class="section-subtitle reveal">From my heart to yours ❤️</p>
+
+    <div class="love-names reveal">
+      <span class="love-name one">kutty</span>
+      <span class="love-name two">paapa</span>
+      <span class="love-name three">ammu</span>
+      <span class="love-name four">thango</span>
+      <span class="love-name five">chello</span>
+      <span class="love-name six">ammulu</span>
+      <span class="love-name seven">pattu</span>
+      <span class="love-name eight">thangakutty</span>
+      <span class="love-name nine">pattukutty</span>
+      <span class="love-name ten">chellakutty</span>
+      <span class="love-name eleven">samykutty</span>
+      <span class="love-name twelve">kannu</span>
+      <span class="love-name thirteen">kolandha</span>
+      <span class="love-name fourteen">azhagu</span>
+      <span class="love-name fifteen">paapakutty</span>
+      <span class="love-name sixteen">azhagupulla</span>
+      <span class="love-name seventeen">singakutty</span>
+    </div>
+
+    <div class="letter-card reveal">
+      <p class="letter-salutation">My Dearest Love,</p>
+      <div id="typed-letter"></div>
+      <div class="letter-heart-row">❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤</div>
+      <div class="final-divider" style="margin: 1.5rem 0;"></div>
+      <p class="letter-sign">Forever yours, with love ❤️</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. FINAL CLOSING SECTION
+  ============================================================ -->
+  <section id="final">
+    <div class="final-glow"></div>
+    <div class="final-content">
+      <p class="final-message">
+        Thanks for coming into my life ammu😘😘😘😘😘😘😘😘
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    /* ============================================
+       FLOATING HEARTS PARTICLE SYSTEM
+    ============================================ */
+    (() => {
+      const canvas = document.getElementById('heart-canvas');
+      const ctx    = canvas.getContext('2d');
+      let W, H, particles = [];
+
+      const COLORS = ['#f4a7b9','#d8b4fe','#bae6fd','#fce4ec','#e07b9a'];
+
+      function resize() {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+      }
+
+      // Draw a heart shape
+      function drawHeart(ctx, x, y, size, color, alpha) {
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle   = color;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.bezierCurveTo(x,       y - size * 0.3,  x - size * 0.5, y - size * 0.8, x - size * 0.5, y - size * 0.5);
+        ctx.bezierCurveTo(x - size * 0.5, y - size * 1.1, x,        y - size * 1.1, x,             y - size * 0.65);
+        ctx.bezierCurveTo(x,       y - size * 1.1,  x + size * 0.5, y - size * 1.1, x + size * 0.5, y - size * 0.5);
+        ctx.bezierCurveTo(x + size * 0.5, y - size * 0.8, x,        y - size * 0.3, x,              y);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      }
+
+      class Particle {
+        constructor() { this.reset(true); }
+
+        reset(init = false) {
+          this.x     = Math.random() * W;
+          this.y     = init ? Math.random() * H : H + 30;
+          this.size  = 6 + Math.random() * 14;
+          this.speedY = 0.3 + Math.random() * 0.7;
+          this.speedX = (Math.random() - 0.5) * 0.5;
+          this.alpha  = 0.15 + Math.random() * 0.35;
+          this.color  = COLORS[Math.floor(Math.random() * COLORS.length)];
+          this.angle  = 0;
+          this.spin   = (Math.random() - 0.5) * 0.02;
+        }
+
+        update() {
+          this.y     -= this.speedY;
+          this.x     += this.speedX;
+          this.angle += this.spin;
+          if (this.y < -30) this.reset();
+        }
+
+        draw() {
+          ctx.save();
+          ctx.translate(this.x, this.y);
+          ctx.rotate(this.angle);
+          drawHeart(ctx, 0, 0, this.size, this.color, this.alpha);
+          ctx.restore();
+        }
+      }
+
+      function init() {
+        resize();
+        particles = Array.from({ length: 40 }, () => new Particle());
+        loop();
+      }
+
+      function loop() {
+        ctx.clearRect(0, 0, W, H);
+        particles.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(loop);
+      }
+
+      window.addEventListener('resize', resize);
+      init();
+    })();
+
+
+    /* ============================================
+       SCROLL-REVEAL (IntersectionObserver)
+    ============================================ */
+    (() => {
+      const items = document.querySelectorAll('.reveal, .timeline-item, .final-content');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.15 });
+
+      items.forEach(el => observer.observe(el));
+    })();
+
+    /* ============================================
+       RELATIONSHIP TIMER
+    ============================================ */
+    (() => {
+      // â¬‡ Change this to your actual anniversary start date
+      const START = new Date('2025-10-09T00:00:00');
+
+      function update() {
+        const diff = Date.now() - START.getTime();
+        if (diff < 0) return;
+
+        const totalSeconds = Math.floor(diff / 1000);
+        const totalMinutes = Math.floor(totalSeconds / 60);
+        const totalHours = Math.floor(totalMinutes / 60);
+        const totalDays = Math.floor(totalHours / 24);
+
+        document.getElementById('t-days').textContent  = totalDays.toLocaleString('en-US');
+        document.getElementById('t-hours').textContent = totalHours.toLocaleString('en-US');
+        document.getElementById('t-mins').textContent  = totalMinutes.toLocaleString('en-US');
+        document.getElementById('t-secs').textContent  = totalSeconds.toLocaleString('en-US');
+      }
+
+      update();
+      setInterval(update, 1000);
+    })();
+
+    /* ============================================
+       TRAIN ROUTE SCROLL MOTION
+    ============================================ */
+    (() => {
+      const section = document.getElementById('train-journey');
+      if (!section) return;
+
+      const stops = Array.from(section.querySelectorAll('.route-stop'));
+
+      function updateRoute() {
+        const rect = section.getBoundingClientRect();
+        const travel = window.innerHeight + rect.height;
+        const seen = window.innerHeight - rect.top;
+        const progress = Math.max(0, Math.min(1, seen / travel));
+        section.style.setProperty('--journey-progress', progress.toFixed(3));
+
+        const activeCount = Math.max(1, Math.min(stops.length, Math.floor(progress * (stops.length - 1)) + 1));
+        stops.forEach((stop, index) => {
+          stop.classList.toggle('active', index < activeCount);
+        });
+      }
+
+      updateRoute();
+      window.addEventListener('scroll', updateRoute, { passive: true });
+      window.addEventListener('resize', updateRoute);
+    })();
+
+    /* ============================================
+       MEMORY SLIDER
+    ============================================ */
+    (() => {
+      const sliders = Array.from(document.querySelectorAll('.memory-gallery-frame.slider'));
+      if (!sliders.length) return;
+
+      sliders.forEach((slider) => {
+        const slides = Array.from(slider.querySelectorAll('.memory-slide'));
+        const dotsWrap = slider.querySelector('.memory-dots');
+        const prevBtn = slider.querySelector('.memory-arrow.prev');
+        const nextBtn = slider.querySelector('.memory-arrow.next');
+        let current = 0;
+        let timer;
+
+        if (!slides.length || !dotsWrap || !prevBtn || !nextBtn) return;
+        dotsWrap.innerHTML = '';
+
+        slides.forEach((_, index) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'memory-dot' + (index === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', `Go to memory ${index + 1}`);
+          dot.addEventListener('click', () => {
+            goTo(index);
+            autoPlay();
+          });
+          dotsWrap.appendChild(dot);
+        });
+
+        function goTo(index) {
+          slides[current].classList.remove('active');
+          dotsWrap.children[current].classList.remove('active');
+          current = (index + slides.length) % slides.length;
+          slides[current].classList.add('active');
+          dotsWrap.children[current].classList.add('active');
+        }
+
+        function autoPlay() {
+          clearInterval(timer);
+          timer = setInterval(() => goTo(current + 1), 3500);
+        }
+
+        prevBtn.addEventListener('click', () => {
+          goTo(current - 1);
+          autoPlay();
+        });
+
+        nextBtn.addEventListener('click', () => {
+          goTo(current + 1);
+          autoPlay();
+        });
+
+        autoPlay();
+      });
+    })();
+
+    /* ============================================
+       TYPING ANIMATION (Love Letter)
+    ============================================ */
+    (() => {
+      const message = `Love You paapa😘😘😘😘😘😘😘😘😘😘😘`;
+
+      const el     = document.getElementById('typed-letter');
+      const cursor = document.createElement('span');
+      cursor.className = 'cursor-blink';
+      el.appendChild(cursor);
+
+      const paragraphs = message.split('\n');
+      let pIdx = 0, cIdx = 0;
+      let started = false, done = false;
+
+      // Only start when visible
+      const observer = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting && !started) {
+          started = true;
+          typeNext();
+        }
+      }, { threshold: 0.3 });
+
+      observer.observe(el);
+
+      function typeNext() {
+        if (done) return;
+
+        if (pIdx >= paragraphs.length) { done = true; return; }
+
+        const para = paragraphs[pIdx];
+
+        // Empty line â†’ add <br><br>
+        if (para === '' && cIdx === 0) {
+          const br = document.createElement('br');
+          el.insertBefore(br, cursor);
+          const br2 = document.createElement('br');
+          el.insertBefore(br2, cursor);
+          pIdx++;
+          setTimeout(typeNext, 200);
+          return;
+        }
+
+        if (cIdx < para.length) {
+          el.insertBefore(document.createTextNode(para[cIdx]), cursor);
+          cIdx++;
+          setTimeout(typeNext, 28 + Math.random() * 20);
+        } else {
+          pIdx++;
+          cIdx = 0;
+          setTimeout(typeNext, 350);
+        }
+      }
+    })();
+
+
+    /* ============================================
+       MUSIC PLAYER
+    ============================================ */
+    (() => {
+      const btn   = document.getElementById('play-btn');
+      const audio = document.getElementById('bg-music');
+      const eq    = document.getElementById('eq');
+      let playing = false;
+
+      audio.volume = 1;
+      audio.load();
+
+      function startPlayback() {
+        if (!audio.paused) return;
+        audio.play().then(() => {
+          playing = true;
+          btn.textContent = '⏸';
+          eq.classList.remove('paused');
+          cleanupAutoStart();
+        }).catch(() => {});
+      }
+
+      function cleanupAutoStart() {
+        window.removeEventListener('load', startPlayback);
+        document.removeEventListener('DOMContentLoaded', startPlayback);
+        window.removeEventListener('pageshow', startPlayback);
+        window.removeEventListener('scroll', startPlayback);
+        window.removeEventListener('wheel', startPlayback);
+        window.removeEventListener('pointerdown', startPlayback);
+        window.removeEventListener('mousedown', startPlayback);
+        document.removeEventListener('click', startPlayback);
+        document.removeEventListener('touchstart', startPlayback);
+        document.removeEventListener('keydown', startPlayback);
+        document.removeEventListener('visibilitychange', startPlayback);
+      }
+
+      btn.addEventListener('click', () => {
+        if (playing) {
+          audio.pause();
+          btn.textContent = '▶';
+          eq.classList.add('paused');
+        } else {
+          startPlayback();
+        }
+      });
+
+      audio.addEventListener('pause', () => {
+        playing = false;
+        btn.textContent = '▶';
+        eq.classList.add('paused');
+      });
+
+      audio.addEventListener('play', () => {
+        playing = true;
+        btn.textContent = '⏸';
+        eq.classList.remove('paused');
+      });
+
+      startPlayback();
+      document.addEventListener('DOMContentLoaded', startPlayback);
+      window.addEventListener('load', startPlayback);
+      window.addEventListener('pageshow', startPlayback);
+      window.addEventListener('scroll', startPlayback, { passive: true });
+      window.addEventListener('wheel', startPlayback, { passive: true });
+      window.addEventListener('pointerdown', startPlayback);
+      window.addEventListener('mousedown', startPlayback);
+      document.addEventListener('click', startPlayback);
+      document.addEventListener('touchstart', startPlayback);
+      document.addEventListener('keydown', startPlayback);
+      document.addEventListener('visibilitychange', startPlayback);
+    })();
+
+  </script>
+</body>
+</html>
